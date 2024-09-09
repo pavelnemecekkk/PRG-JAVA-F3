@@ -7,5 +7,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://V:/Boháč/PRG/pvs3/FileWorks.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://V:/Boháč/PRG/pvs3/FileWorks.jar!/javadoc" />
+        </JAVADOC>
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
