@@ -1,43 +1,69 @@
 package Dědičnost;
 
+import fileworks.DataExport;
+import fileworks.DataImport;
+
+import java.util.ArrayList;
+
 public class Hospital {
     public static void main(String[] args) {
 
-        Doctor Carl = new Doctor(50000, "Carl");
-        System.out.println(Carl.name + " " + Carl.getSalary());
-        Carl.diagnose();
-        Carl.diagnose();
-        System.out.println(Carl.name + ": " + Carl.getSalary());
-        Surgeon joseph = new Surgeon(50000, "Joseph");
-        System.out.println(joseph.name + ": " + joseph.getSalary());
-        joseph.Surgery();
-        joseph.diagnose();
-        System.out.println(joseph.name + ": " + joseph.getSalary());
-        CardioSurgeon frenchie = new CardioSurgeon(50000, "Frenchie");
-        System.out.println(frenchie.name + ": " + frenchie.getSalary());
-        frenchie.diagnose();
-        frenchie.Surgery();
-        frenchie.cardiacSurgery();
-        System.out.println(frenchie.name + ": " + frenchie.getSalary());
+        DataImport di = new DataImport("procedures.txt");
+        DataExport de = new DataExport("report.txt");;
+        doktori toRead;
+        ArrayList<doktori> lekar = new ArrayList<>();
 
-        Doctor jarmil = new Surgeon(50000, "Jarmil"); // Spustí Konstruktor Surgeon, ale neumí metody jako Surgeon
 
-        // Varianta 1, přetypovat a hodid do proměné
-//        Surgeon temp = (Surgeon) jarmil;
-        //varianta 2, rovnou volat na pretypovanou promenout
-//        ((Surgeon)jarmil).Surgery();
-        Doctor[] doctors = {Carl, joseph, frenchie, jarmil};
-        //vsichni zkusí operaci
-        for (Doctor doctor : doctors) {
-            //pokus se o operaci
-            System.out.println("Provádí operaci: " + doctor.name);
-            if (doctor instanceof Surgeon) {
-                ((Surgeon) doctor).Surgery();
-            } else {
-                System.out.println("Tenhle doktor " + doctor.name + " to neumí");
+        while (di.hasNext()) {
+          String  line = di.readLine();
+         String[]  atributes = line.split(",");
+         ArrayList<String> sub = new ArrayList<>();
+            for (int i = 2; i < line.split(",").length; i++) {
+                sub.add(atributes[i]);
             }
+            lekar.add(new doktori(atributes[0], atributes[1], sub));
         }
 
-
+        System.out.println(lekar);
+        di.finishImport();
+        de.finishExport();
     }
+
+
+    static void action(doktori tester){
+        switch (tester.sub){
+            case"D":
+                tester.;
+            case "S":;
+            case "C":;
+        }
+    }
+
+
+
+
+
+        static class doktori extends CardioSurgeon {
+            String name;
+            String work;
+            ArrayList<String> sub;
+
+            public doktori(String name, String work, ArrayList<String> sub) {
+                super(salary, name);
+                this.name = name;
+                this.work = work;
+                this.sub = sub;
+            }
+            @Override
+            public String toString() {
+                return "doktori{" +
+                        "name='" + name + '\'' +
+                        ", work='" + work + '\'' +
+                        ", sub=" + sub +
+                        '}';
+            }
+
+
+        }
+
 }

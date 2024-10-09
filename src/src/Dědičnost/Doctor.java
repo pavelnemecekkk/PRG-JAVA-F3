@@ -5,10 +5,14 @@ public class Doctor {
 
     String name;
 
+
+
     public Doctor(int salary, String name) {
         this.salary = salary;
         this.name = name;
     }
+
+
 
     public int getSalary() {
         return salary;
