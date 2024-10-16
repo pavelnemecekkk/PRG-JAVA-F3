@@ -51,7 +51,6 @@ class Country implements Comparable<Country> {
     String name, continent;
     int population;
     double lifeExpectancy;
-
     static final Comparator<Country> BY_NAME = new Comparator<Country>() {
         @Override
         public int compare(Country o1, Country o2) {
