@@ -17,6 +17,7 @@ public class TEST2 {
             atributes = line.split(";");
             movies.add(new Movies(atributes[0], Integer.parseInt(atributes[1]),Double.parseDouble(atributes[2]), Integer.parseInt(atributes[3])));
         }
+        di.finishImport();
         return movies;
     }
 
@@ -36,24 +37,31 @@ public class TEST2 {
         System.out.println(movies);
         movies.sort(Movies.BY_YEAR.reversed());
         top10Rating(movies);
-        if (pom == "reverse") {
-        switch (sc.nextLine()){
-                case "name":  movies.sort(Movies.BY_NAME.reversed());break;
-                case "year":  movies.sort(Movies.BY_YEAR.reversed());break;
-                case "rating": movies.sort(Movies.BY_RATING.reversed());break;
-                case "length": movies.sort(Movies.BY_LENGTH.reversed());break;
-            }
-        } else {
-            switch (sc.nextLine()){
-                case "name":  movies.sort(Movies.BY_NAME);break;
-                case "year":  movies.sort(Movies.BY_YEAR);break;
-                case "rating": movies.sort(Movies.BY_RATING);break;
-                case "length": movies.sort(Movies.BY_LENGTH);break;
+        Comparator choice = Movies.BY_LENGTH;
+        switch (sc.nextLine()) {
+            case "name":
+                choice = (Movies.BY_NAME.reversed());
+                break;
+            case "year":
+                choice = (Movies.BY_YEAR.reversed());
+                break;
+            case "rating":
+                choice = (Movies.BY_RATING.reversed());
+                break;
+            case "length":
+                choice = (Movies.BY_LENGTH.reversed());
+                break;
         }
+       choice = sc.nextLine().equals("n") ? choice : choice.reversed();
+        movies.sort(choice);
+
+        //  choice = sc.nextLine().equals("n") ? choice : choice.reversed();
+            // Pokud je to pravda udělej choice
+            // Pokud je to nepravda udělej to reversed
     }
 }
 
-class Movies {
+ class Movies {
     String name;
     int year;
     double rating;
