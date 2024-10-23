@@ -1,4 +1,3 @@
-import OOP.polymorphism.Movie;
 import fileworks.DataImport;
 
 import java.util.ArrayList;
@@ -32,7 +31,6 @@ public class TEST2 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String pom = sc.nextLine();
       ArrayList<Movies> movies = toLoad("Movies.txt");
         System.out.println(movies);
         movies.sort(Movies.BY_YEAR.reversed());

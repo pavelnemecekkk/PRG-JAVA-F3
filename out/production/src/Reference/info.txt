@@ -1,0 +1,2 @@
+Stack = paměť, která je jenom dočasná, většinou ho vezme garbage collector, jedná se o jednoduché typy proměných (int, byte, long, double ...)
+Heap = paměť, která je počas programu v oběhu než ho ukončíme, jedná se o složité proměné (String, pole, Objekty)
