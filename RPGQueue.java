@@ -21,7 +21,7 @@ class Character {
      * @param opponent postava, na kterou je utoceno
      */
     public void attack(Character opponent) {
-        int attackforprint = 0;
+        int attackforprint;
 
         if (defense > 89) {
             attackforprint = (int) (attack * (89.0 / 100));
