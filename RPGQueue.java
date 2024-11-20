@@ -45,7 +45,7 @@ class Character {
 
     @Override
     public String toString() {
-        return name + " (HP: " + health + ", Attack: " + attack + ", Defence: " + defense + ")";
+        return name + " (HP: " + health + ", Attack: " + attack + ", Defense: " + defense + ")";
     }
 }
 
