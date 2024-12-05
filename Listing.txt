@@ -1,0 +1,33 @@
+0) Vytvořte třídu, která reprezentuje město tak, aby šlo načíst ze souboru.
+
+1) Některé záznamy (město + země + kontinent) jsou v souboru duplicitní, načtěte pouze ty unikátní.
+
+2) Tyto unikátní seřaďte dle kontinentů abecedně (implementuje toString() a kontrolně vypište)
+
+3) Vypište počet *různých* zemí v souboru - nepočítejte duplicity.
+
+4) Napište metodu void printCities(String country):
+  > printCities("Finland");
+OUT:
+ Finland
+ |- Helsinki
+ |- Espoo
+ |- Tampere
+ |- Turku
+ |- Oulu
+ |- Vaasa
+ |- Lahti
+ |- Kuopio
+---------------------------------------------------------------------
+
+Bonus1: Využijte metodu printCities() pro novou metodu, printCountires(String country), tato metoda akceptuje název země:
+Europe:
+ |- Finland
+  |- Helsinki
+  |- Espoo
+  |- ...
+ |- Iceland
+  |- ...
+
+Bonus2: Připravte metodu Queue<City> getClose(String cityName), do této fronty dejte jako první všechna města ze stejné země, poté ze stejného kontinentu, poté zbytek.
+
