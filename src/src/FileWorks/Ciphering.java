@@ -15,22 +15,18 @@ public class Ciphering {
         // pro účely debugu, uložit cely soubor do promene
         ArrayList<String> encryptedLines = new ArrayList<>();
 
-        for (String line : lines) {
-            encryptedLines.add(cipher.encrypt(line));
-        }
-
         System.out.println("Encrypted");
         System.out.println(encryptedLines);
 
         PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(new File("data\\dataEncrypted.txt"))));
         for (String line : lines) {
-            writer.println(line);
+            writer.println(cipher.encrypt(line));
         }
         writer.close();
 
         System.out.println("Decrypted");
         lines = Files.readAllLines(Paths.get("data\\dataEncrypted.txt"));
-        for(String line : lines){
+        for (String line : lines) {
             System.out.println(cipher.decrypt(line));
         }
 
@@ -66,19 +62,33 @@ class Caeser extends Cipher {
     String encrypt(String input) {
 
         StringBuilder result = new StringBuilder();
-        String alphabet = "abcdefghijklmnopqrstujvxyz";
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
         String lowerMessage = input.toLowerCase();
+
+        for (int i = 0; i < input.length(); i++) {
+            if (Character.isAlphabetic(lowerMessage.charAt(i))){
+                int position = alphabet.indexOf(lowerMessage.charAt(i));
+                if (position + key >= alphabet.length()){
+                    result.append(alphabet.charAt(position + key - alphabet.length()));
+                } else {
+                    result.append(alphabet.charAt(position + key));
+                }
+            } else {
+                result.append(lowerMessage.charAt(i));
+            }
+        }
 
         return result.toString();
     }
 
+
     @Override
     String decrypt(String encryptedInput) {
-
-
-
-
-        return null;
+        int tmp = key;
+        key = 26 - key;
+        String result = encrypt(encryptedInput);
+        key = tmp;
+        return result;
     }
 }
 
