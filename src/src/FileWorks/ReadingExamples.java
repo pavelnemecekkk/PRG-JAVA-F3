@@ -44,7 +44,6 @@ public class ReadingExamples {
             System.out.println(line);
         }
         bufferedReader.close();
-
         List<String> lines = Files.readAllLines(Paths.get("countries.txt"));
         System.out.println(lines);
         System.out.println(lines.size());

@@ -1,0 +1,10 @@
+1) naèíst obsah složky.
+    -ovìøit, že se jedná o složku
+3) Vyfiltrovat pouze txt soubory
+2) Seøadit podle velikosti.
+    -už txt soubory
+3) podle velikosti seøazené spojit všechny txt soubory do jednoho.
+    -text by mìl být víceménì smysluplná básnièka. (po-et-ry.txt)
+    
+  bonusovì:
+  spojit i jméno algoritmicky (myšleno, že výstupní soubor nebude natvrdo pojmenován poetry.txt, ale vezme si názvy jednotlivých souborù a spojí je)
