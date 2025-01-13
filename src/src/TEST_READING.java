@@ -13,7 +13,7 @@ public class TEST_READING {
         if (folder.isDirectory()){
             System.out.println("Jedná se o složku");
             File[] files = folder.listFiles();
-            System.out.println(files.toString());
+            System.out.println(files);
             ArrayList<String> arrayFile = new ArrayList<>();
             ArrayList<String> arrayFile2 = new ArrayList<>();
             System.out.println(Arrays.toString(files));
