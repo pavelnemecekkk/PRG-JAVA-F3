@@ -24,7 +24,7 @@ public class TEST_READING {
 
     public static void main(String[] args) throws IOException {
         String path = "testData";
-        File folder = new File("src\\src\\testData");
+        File folder = new File("PVS3\\src\\testData");
         if (folder.isDirectory()) {
             System.out.println("Jedná se o složku");
             File[] files = folder.listFiles();

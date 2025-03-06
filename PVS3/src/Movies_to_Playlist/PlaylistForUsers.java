@@ -29,7 +29,7 @@ public class PlaylistForUsers {
         }
         return toReturn;
     }
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException{
         File toRevise = new File("lists.ser");
         List<String> moviesToRead = Files.readAllLines(Paths.get("ListOfFilms.txt"));
         List<MoviesToPlaylist> moviesToPlaylists = toParse(moviesToRead);
