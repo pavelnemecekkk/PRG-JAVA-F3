@@ -55,10 +55,41 @@ public class AdvancedBasics {
                 System.out.println("|-" + movie);
             }
         }
+
+        // Vytvoří mapu žánrů a mapů filmů
         Map<String, List<String>> alt = movies.stream()
                 .collect(Collectors.groupingBy(Movie::getGenre, Collectors.mapping(Movie::getName, Collectors.toList())));
 
-        System.out.println(alt);
+        System.out.println(alt.toString());
+
+        for (Map.Entry<String, List<Movie>> movie : genreMap.entrySet()){
+            System.out.println(movie.getKey() +": ");
+            System.out.println(
+                    movie.getValue().stream()
+                            .mapToDouble(Movie::getRating)
+                            .average()
+                            .orElse(0)
+            );
+        }
+        Map<String, Double> avgRatingGenre = movies.stream()
+                .collect(Collectors.groupingBy(Movie::getGenre, Collectors.averagingDouble(Movie::getRating)));
+        System.out.println(avgRatingGenre);movies.stream()
+                .collect(Collectors.groupingBy(Movie::getGenre, Collectors.averagingDouble(Movie::getRating)))
+                .forEach((string, aDouble) -> System.out.println("Genre: " + string + " rating: " + aDouble));
+
+        Map<String,List<Movie>> ratingComparator = movies.stream()
+                .collect(Collectors.groupingBy(movie -> {
+                    if (movie.getRating() < 5 ) {
+                        return "Bad";
+                } else if (movie.getRating() < 7.5 && movie.getRating() > 5 ){
+                    return "Good";
+                    }
+                    else {
+                        return "Great";
+                    }
+                }));
+        System.out.println(ratingComparator);
+
     }
 }
 
